@@ -1,0 +1,98 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'/*
+' *  UCF COP3330 Summer 2021 Application Assignment 1 Solution
+' *  Copyright 2021 Jeanne Moore
+' */
+
+class FXMLController {
+application globals
+-TODOS: ObservableList<ToDoClass>
+-COMPLETED: ObservableList<ToDoClass>
+-TEMPCOMPLETED: ObservableList<ToDoClass>
+-VIEW: ObservableList<ToDoClass>
+-SELECTED: ToDoClass
+
+application UI
++initLists(): void
+-resources: ResourceBundle
+-location: URL
+-addItemButton: Button
+-removeButton: Button
+-applyChangesButton: Button
+-changeViewCompleteButton: Button
+-changeViewCurrentButton: Button
+-changeViewAllButton: Button
+-loadButton: Button
+-saveButton: Button
+-editButton: Button
+
+-completedCheckBox: CheckBox
+-saveCompletedCheckBox: CheckBox
+-saveToDoCheckBox: CheckBox
+
+-itemDescField: TextField
+-itemDateField: TextField
+-itemNameField: TextField
+-fileNameField: TextField
+
+-currentDate: Text
+-descriptionPane: DialogPane
+-toDoList: ListView<ToDoClass>
+
++removeItem(ToDoClass item, ObservableList<ToDoClass> list): void
++addItem(ToDoClass item, ObservableList<ToDoClass> list): void
++checkItemIsCompleted(ToDoClass item, ObservableList<ToDoClass> list): boolean
+
+add(ActionEvent addItemButton): void
+applyChanges(ActionEvent applyChangesButton): void
+itemCompleted(ActionEvent itemCompletedButton): void
+uncheckComplete(ActionEvent itemCompletedButton): void
+remove(ActionEvent removeButton): void
+edit(ActionEvent editItemButton): void
+saveList(ActionEvent saveButton): void
+loadList(ActionEvent loadButton): void
+viewAll(ActionEvent changeViewAllButton): void
+viewCurrent(ActionEvent changeViewCurrentButton): void
+viewComplete(ActionEvent changeViewCompleteButton): void
+setCurrentDate(): void
+
++initialize(): void
+}
+
+class Application {
++start(Stage stage): void  throws Exception
++main(): void
+}
+
+class SortToDoByDate {
++sortToDoByDate(ObservableList<String> list): void
+}
+
+class ReadToDoList {
++ReadToDoList(String fileName, ObservableList<String> todos, ObservableList<String> complete): void
+}
+
+class WriteToDoList {
++WriteToDoList(String fileName, ObservableList<String> todos, ObservableList<String> completed): void
+}
+
+class ToDoClass {
+-toDoName: String
+-toDoDate: String
+-toDoDesc: String
+}
+
+file ToDoApp.fxml {
+}
+
+Application -- ToDoApp.fxml
+ToDoApp.fxml -- FXMLController
+FXMLController --o SortToDoByDate
+FXMLController --o ReadToDoList
+FXMLController --o WriteToDoList
+FXMLController --o ToDoClass
+
+
+@enduml

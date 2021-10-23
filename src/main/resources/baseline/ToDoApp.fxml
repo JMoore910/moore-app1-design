@@ -48,7 +48,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Item name and Date: " />
             <TextField fx:id="itemNameField" promptText="&lt;Item Name&gt;" />
             <TextField fx:id="itemDateField" promptText="&lt;YYYY-MM-DD&gt;" />
-            <TextField fx:id="ItemDescField" promptText="&lt;Short Description&gt;" />
+            <TextField fx:id="itemDescField" promptText="&lt;Short Description&gt;" />
             <Button fx:id="addItemButton" alignment="CENTER" mnemonicParsing="false" text="Add Item">
                <HBox.margin>
                   <Insets left="190.0" />
@@ -62,9 +62,9 @@
       </HBox>
       <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="600.0">
         <items>
-          <Button fx:id="changeViewCurrentButton" mnemonicParsing="false" onAction="#current" text="   Current  " />
-            <Button fx:id="changeViewCompletedButton" mnemonicParsing="false" onAction="#completed" text="Completed" />
-            <Button fx:id="changeViewAllButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="All Items" />
+          <Button fx:id="changeViewCurrentButton" mnemonicParsing="false" onAction="#ViewCurrent" text="   Current  " />
+            <Button fx:id="changeViewCompletedButton" mnemonicParsing="false" onAction="#viewCompleted" text="Completed" />
+            <Button fx:id="changeViewAllButton" mnemonicParsing="false" onAction="#viewAll" prefHeight="25.0" prefWidth="77.0" text="All Items" />
         </items>
          <VBox.margin>
             <Insets />

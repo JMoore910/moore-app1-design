@@ -30,5 +30,5 @@ run {
 }
 
 application {
-    mainClass = 'baseline.TodoApplication'
+    mainClass = 'baseline.Application'
 }
