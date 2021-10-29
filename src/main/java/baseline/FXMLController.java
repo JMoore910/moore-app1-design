@@ -6,6 +6,9 @@ package baseline;
  */
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -17,22 +20,27 @@ import javafx.scene.text.Text;
 
 public class FXMLController {
     //  four lists declared, one to hold current todos, one to hold completed todos, one to hold queued completed todos
-    private final ObservableList<String> todos = FXCollections.observableArrayList();
-    private final ObservableList<String> completed = FXCollections.observableArrayList();
+    private final ObservableList<ObservableList<String>> todos = FXCollections.observableArrayList();
     //  ObservableList tempCompleted
     //  Use the fourth list to track which list to look at. By default set to todos at start
-    //  ObservableList view = todos;
+    //  ObservableList view = todos.get(0);
     //  Use another variable to represent selectedItem
     //  ToDoClass selected = new ToDoClass();
 
     public void initLists() {
+        ObservableList<String> current = FXCollections.observableArrayList();
+        ObservableList<String> complete = FXCollections.observableArrayList();
         for (int i = 1; i <= 256; i++) {
             //  Proper formatting will be required when implementing ToDoList objects
             //  For now, List is of type String and each element is as follows for
             //  presentation purposes:
-            todos.add(String.format("%s%200s", "todo " + i, "todo date " + i));
-            completed.add(String.format("%s%200s","completed todo" + i,"completed date "+i));
+
+
+            current.add(String.format("%s%200s", "todo " + i, "todo date " + i));
+            complete.add(String.format("%s%200s","completed todo" + i,"completed date "+i));
         }
+        todos.add(current);
+        todos.add(complete);
     }
 
     @FXML
@@ -135,7 +143,7 @@ public class FXMLController {
 
 
     //  @FXML - Create a method: void remove(ActionEvent event)
-    //      get list
+    //      get viewed list inside list of lists
     //      get selected item
     //      if an item was selected
     //          removeItem(selectedItem, list)
@@ -205,23 +213,23 @@ public class FXMLController {
         //Changes view so that user is looking at todos list
         System.out.println("Changed to current todos");
         // clear toDoList and set its items to be the todos list
-        // set view to be todos
+        // set view to be todos(0)
     }
 
     @FXML
     void viewCompleted(ActionEvent event) {
         //Changes view so the viewer is looking at completed list
         System.out.println("Changed to completed todos");
-        //  clear toDoList and set its items to be the completed list
-        //  set view to be completed
+        //  clear toDoList and set its items to be the completed list within list of lists
+        //  set view to be todos(1)
     }
 
     @FXML
     void viewAll(ActionEvent event) {
         //Changes view so the viewer is looking at completed list
         System.out.println("Changed to completed todos");
-        //  clear toDoList and set its items to be the completed list
-        //  set view to be todos + completed
+        //  clear toDoList and set its items to be the completed list within list of lists
+        //  set view to be todos.get(0) + todos.get(1)  (current and completed todos)
     }
 
 
@@ -230,7 +238,7 @@ public class FXMLController {
         //  This logic is vital to express the fact that a list is being presented
         //  i is used to represent the list's capacity to reach at least 256 items
         initLists();
-        toDoList.setItems(todos);
+        toDoList.setItems(todos.get(0));
         //  get selection of an item in a list
         toDoList.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
