@@ -6,7 +6,7 @@ package baseline;
  */
 
 public class WriteToDoList {
-    //  ToDo - Create a method: void WriteToDoList(String fileName, ObservableList<String> todos, ObservableList<String> completed)
+    //  ToDo - Create a method: void WriteToDoList(String fileName, ObservableList<ToDoClass> todos, ObservableList<ToDoClass> completed)
     //      method opens a new file at fileName with a buffered writer
     //      buffered writer prints to list
     //      print: "current"

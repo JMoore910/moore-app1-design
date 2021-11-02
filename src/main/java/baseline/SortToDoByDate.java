@@ -6,7 +6,7 @@ package baseline;
  */
 
 public class SortToDoByDate {
-    //  ToDo - Create method: void sortToDoByDate(ObservableList<String> list)
+    //  ToDo - Create method: void sortToDoByDate(ObservableList<ToDoClass> list)
     //      sortToDoByDate sorts an observable list by the date
     //      by way of selection sort
     //      enter a for loop (int i = 0; i < list.size(); i++)

@@ -6,7 +6,7 @@ package baseline;
  */
 
 public class ReadToDoList {
-    //  ToDo - Create a method: void ReadToDoList(String fileName, ObservableList<String> todos, ObservableList<String> complete)
+    //  ToDo - Create a method: void ReadToDoList(String fileName, ObservableList<ToDoClass> todos, ObservableList<ToDoClass> complete)
     //      if no file is found at the specified fileName,
     //          print: the file you specified is incorrect
     //          return new ObservableList<String>() which is empty

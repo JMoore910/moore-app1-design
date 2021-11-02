@@ -67,15 +67,15 @@ class Application {
 }
 
 class SortToDoByDate {
-+sortToDoByDate(ObservableList<String> list): void
++sortToDoByDate(ObservableList<ToDoClass> list): void
 }
 
 class ReadToDoList {
-+ReadToDoList(String fileName, ObservableList<String> todos, ObservableList<String> complete): void
++ReadToDoList(String fileName, ObservableList<ToDoClass> todos, ObservableList<ToDoClass> complete): void
 }
 
 class WriteToDoList {
-+WriteToDoList(String fileName, ObservableList<String> todos, ObservableList<String> completed): void
++WriteToDoList(String fileName, ObservableList<ToDoClass> todos, ObservableList<ToDoClass> completed): void
 }
 
 class ToDoClass {
